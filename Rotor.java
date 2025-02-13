@@ -75,10 +75,5 @@ public class Rotor {
             return convertedRotor[idx];
         }
     }
-
-    //Just a helper method for testing
-    public String getRotorValue(){
-        return rotorValues;
-    }
 }
     

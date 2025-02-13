@@ -1,16 +1,16 @@
 public class Enigma{
-
+    //The hardcoded rotor values used for testing
     private String rotorInit[] = {"#GNUAHOVBIPWCJQXDKRYELSZFMT",
         "#EJOTYCHMRWAFKPUZDINSXBGLQV",
         "#BDFHJLNPRTVXZACEGIKMOQSUWY",
         "#NWDKHGXZVRIFJBLMAOPSCYUTQE",
         "#TGOWHLIFMCSZYRVXQABUPEJKND"};
 
-
+    //The array of rotors the Enigma class uses to function
     private Rotor rotors[];
         
     public Enigma(int id1, int id2, int id3, String start){
-
+        //Defining the rotors and the char they need to start at
         rotors = new Rotor[3];
         rotors[0] = new Rotor(rotorInit[id1-1], start.charAt(0));
         rotors[1] = new Rotor(rotorInit[id2-1], start.charAt(1));
@@ -18,7 +18,9 @@ public class Enigma{
         
     }
 
-
+    /// @brief Decrypts a given message encrypted with the Enigma class
+    /// @param message The encrypted message to decrypt
+    /// @return Returns a decrypted message
     public String decrypt(String message){        
         /*
             Steps to Decrypt(starts with last char)
@@ -62,7 +64,9 @@ public class Enigma{
     }
 
 
-    
+    /// @brief Encrypts a message using the Enigma encryption system
+    /// @param message The message to be encrypted
+    /// @return The encrypted message
     public String encrypt(String message){
         /* 
             Steps to Encrypt(starts with first char)
@@ -105,7 +109,7 @@ public class Enigma{
         return encryptedMsg;
     }
 
-    
+    /// @brief A helper method to simulate the odometry style rotating of the rotors
     private void rotate(){
         if(rotors[0].rotate()){
             if(rotors[1].rotate()){
