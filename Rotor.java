@@ -9,9 +9,10 @@ public class Rotor {
         this.rotorValues = new String(v);
         this.startChar = c;
         
-        //Until I get the rest of this figured out I am leaving this functionality out
-        //while(!this.rotate());
-            
+        //The constructor should rotate the input string until the startChar is on top
+        while(!this.rotate()){
+            this.rotate();
+        }   
     }
 
     /// @brief Rotates the rotor one click, and returns true if the rotor is at its original case when completed
@@ -20,7 +21,7 @@ public class Rotor {
 
       //To facilitate a iterative approach first the rotor string is converted to a char array, and we record the last element of that (the moved one)
       char[] convertedRotor = rotorValues.toCharArray();
-      char movedChar = convertedRotor[convertedRotor.length];
+      char movedChar = convertedRotor[convertedRotor.length-1];
 
       //To accomplish rotation a iterative loop is used to shift each element accordingly
       for(int i = convertedRotor.length-1; i>=1; i--){
@@ -73,6 +74,11 @@ public class Rotor {
         else{
             return convertedRotor[idx];
         }
+    }
+
+    //Just a helper method for testing
+    public String getRotorValue(){
+        return rotorValues;
     }
 }
     
